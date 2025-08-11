@@ -3,3 +3,21 @@
   padding: 0;
   border: 0 solid transparent;
 }
+
+
+
+#wide-container{
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  border: black 0.5px solid;
+  background-color: deepskyblue;
+}
+
+#picture-frame{
+  display: flex;
+  overflow-x: scroll;
+  border: red solid 0.5px;
+}
+
+
