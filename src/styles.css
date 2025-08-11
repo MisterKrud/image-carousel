@@ -18,6 +18,8 @@
   display: flex;
   overflow-x: scroll;
   border: red solid 0.5px;
+  width: 25vw;
+  margin: 500px auto;
 }
 
 
