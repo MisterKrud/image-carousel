@@ -6,7 +6,7 @@ export const carousel = () => {
         pictureFrame.id = 'picture-frame';
 
 
-    const content = document.getElementById('container');
+    const content = document.getElementById('content');
 
     content.appendChild(pictureFrame);
     pictureFrame.appendChild(wideContainer);
