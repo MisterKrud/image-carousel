@@ -4,22 +4,33 @@
   border: 0 solid transparent;
 }
 
-
+#content{
+  height: 100vh;
+  border: 0.5px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 #wide-container{
   width: 100vw;
   display: flex;
   justify-content: space-between;
   border: black 0.5px solid;
-  background-color: deepskyblue;
+  /* background-color: deepskyblue; */
 }
 
 #picture-frame{
   display: flex;
-  overflow-x: scroll;
+  overflow: hidden;
   border: red solid 0.5px;
-  width: 25vw;
-  margin: 500px auto;
+  width: 400px;
+  height: 300px;
+  
+}
+
+.image{
+  margin: auto;
 }
 
 
