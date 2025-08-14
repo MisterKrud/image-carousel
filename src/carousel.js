@@ -14,9 +14,20 @@ export const carousel = () => {
     const imageData = images();
     content.appendChild(pictureFrame);
     pictureFrame.appendChild(wideContainer);
+
+    // const imgDivArray = imageData.imageArray
+    //     imgDivArray.forEach(imgDiv => {
+    //         wideContainer.appendChild(imgDiv);
+    //     })
     
-    imageData.imageArray.forEach(img => {
-        wideContainer.appendChild(img);
+    imageData.imageArray.forEach((img, idx) => {
+        const imgDiv = document.createElement('div');
+     
+        imgDiv.appendChild(img);
+        
+        imgDiv.classList.add('img-div')
+        imgDiv.id = `img-${idx}`
+        wideContainer.appendChild(imgDiv);
     });
 
 return pictureFrame;

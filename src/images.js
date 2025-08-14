@@ -13,10 +13,11 @@ export const images = () =>{
    
    
     const imageArray = [image1, image2, image3, image4, image5];
-
+   
     imageArray.forEach((img, indx) =>{
         
-         const imgId = (indx + 1)
+
+         const imgId = (indx + 1);
         const imgLoader = () => {
          img.setAttribute('src',`https://picsum.photos/400/300?random=${Date.now()}${imgId}`)
         }

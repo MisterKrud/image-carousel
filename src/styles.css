@@ -13,24 +13,25 @@
 }
 
 #wide-container{
-  width: 100vw;
+  width: 2000px;
   display: flex;
-  justify-content: space-between;
-  border: black 0.5px solid;
-  /* background-color: deepskyblue; */
+  justify-content: center;
+  /* border: black 0.5px solid; */
+  background-color: deepskyblue;
 }
 
 #picture-frame{
   display: flex;
   overflow: hidden;
-  border: red solid 0.5px;
+  /* padding:5px; */
   width: 400px;
   height: 300px;
   
 }
 
-.image{
+/* .image{
+
   margin: auto;
-}
+} */
 
 
