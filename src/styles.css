@@ -2,12 +2,14 @@
   margin: 0;
   padding: 0;
   border: 0 solid transparent;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #content{
   height: 100vh;
   border: 0.5px solid blue;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -26,12 +28,33 @@
   /* padding:5px; */
   width: 400px;
   height: 300px;
+  border: red 0.5px solid;
+ 
+ 
   
 }
 
-/* .image{
+#button-div{
+  
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
 
-  margin: auto;
-} */
+.btn{
+  height: 35px;
+  width: 90px;
+  margin: 5px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px darkgrey;
+}
 
+.btn:hover{
+  background-color: cadetblue;
+}
+
+.btn:active{
+  transform:translateX(2px) translateY(2px);
+}
 

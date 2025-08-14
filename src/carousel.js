@@ -8,18 +8,16 @@ export const carousel = () => {
         wideContainer.id = 'wide-container';
     const pictureFrame = document.createElement('div');
         pictureFrame.id = 'picture-frame';
-    //
-
     
+    
+
+    //Append containers
     const imageData = images();
     content.appendChild(pictureFrame);
     pictureFrame.appendChild(wideContainer);
 
-    // const imgDivArray = imageData.imageArray
-    //     imgDivArray.forEach(imgDiv => {
-    //         wideContainer.appendChild(imgDiv);
-    //     })
-    
+    //Get images (from images.js)
+    //Place each img inside a div and append to #wide-container
     imageData.imageArray.forEach((img, idx) => {
         const imgDiv = document.createElement('div');
      
@@ -29,6 +27,27 @@ export const carousel = () => {
         imgDiv.id = `img-${idx}`
         wideContainer.appendChild(imgDiv);
     });
+
+
+    const buttonDiv = document.createElement('div');
+        buttonDiv.id = 'button-div'
+        
+    const fwdButton = document.createElement('button');
+        fwdButton.id = 'fwd-button';
+        fwdButton.classList.add('btn')
+        fwdButton.innerText = 'Next';
+    const bkButton = document.createElement('button');
+        bkButton.id = 'bk-button';
+        bkButton.classList.add('btn');
+        bkButton.innerText = 'Prev';
+
+    content.appendChild(buttonDiv);
+    buttonDiv.append(fwdButton, bkButton);
+
+
+    const slideForward = () =>{
+
+    }
 
 return pictureFrame;
 }
