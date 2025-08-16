@@ -97,9 +97,22 @@ renderImages();
 
     navDotArray.forEach((dot, index) => {
        
-        dot.addEventListener('click',() => goToImg(index+1)
-    );
+        dot.addEventListener('click',() => {
+            goToImg(index+1);
+            
+    });
     })
+
+   const repeatMovement = () => {
+     moveNext();
+     setTimeout(repeatMovement, 5000)
+   }
+   repeatMovement();
+
+      
+        
+      
+    
    
     fwdButton.addEventListener('click', moveNext);
 
@@ -107,7 +120,7 @@ renderImages();
 
 
 
- 
+
     
 
   
