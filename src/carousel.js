@@ -3,6 +3,7 @@ import { slideForward } from "./slideMovement";
 
 export const carousel = () => {
 
+    let navDotArray = []
 
     const content = document.getElementById('content');
     //Div container framework
@@ -10,28 +11,48 @@ export const carousel = () => {
         wideContainer.id = 'wide-container';
     const pictureFrame = document.createElement('div');
         pictureFrame.id = 'picture-frame';
+    const navDotContainer = document.createElement('div');
+        navDotContainer.id = 'nav-dot-container';
     
     
 
     //Append containers
     const imageData = images();
+    const imageLinks = imageData.images
     content.appendChild(pictureFrame);
-    pictureFrame.appendChild(wideContainer);
+    pictureFrame.append(wideContainer, navDotContainer);
+
+    
 
     //Get images (from images.js)
     //Place each img inside a div and append to #wide-container
-    imageData.imageArray.forEach((img, idx) => {
+   const renderImages = () => { 
+   
+    // imageData.getImages();
+    const imageArr = imageData.imagesArray;
+    console.log('Render Images: '+imageArr)
+    imageArr.forEach((img, idx) => {
         const imgDiv = document.createElement('div');
-     
+     wideContainer.appendChild(imgDiv);
         imgDiv.appendChild(img);
         
         imgDiv.classList.add('img-div')
         imgDiv.id = `img-${idx}`
-        wideContainer.appendChild(imgDiv);
-        if (idx == 2) {
-            imgDiv.classList.add('visible')
+
+        if (navDotArray.length < imageArr.length) {
+    const navDot = document.createElement('btn');
+    navDot.classList.add('nav-dot');
+    navDot.id = `dot-${idx}`
+    navDotContainer.appendChild(navDot);
+       navDotArray.push(navDot)
         }
+    
     });
+     console.log('images rendered');
+     console.log(navDotArray);
+}
+
+renderImages();
 
     //Render 'Next' and 'Prev' buttons
     const buttonDiv = document.createElement('div');
@@ -51,32 +72,45 @@ export const carousel = () => {
     content.appendChild(buttonDiv);
     buttonDiv.append(bkButton, fwdButton);
 
-//    const visibleImage = imageData.imageArray[2]
-//    console.log(visibleImage)
-//     const visibleImageIndex = imageData.imageArray.indexOf(visibleImage);
-//     console.log(visibleImageIndex)
-    
-//      const slideForward = () =>{
-//         const visibleImage = imageData.imageArray[2]
-//         console.log(visibleImage)
-//         const visibleImageIndex = imageData.imageArray.findIndex(visibleImage);
+    const moveNext = () => {
+   const visibleDiv = document.querySelector('.img-div')
+        wideContainer.removeChild(visibleDiv);
+        wideContainer.appendChild(visibleDiv);
+    }
+
+    const movePrev = () => {
+        const lastDiv = wideContainer.lastChild;
+        wideContainer.removeChild(lastDiv);
+        wideContainer.prepend(lastDiv);
+    }
+
+    const goToImg = (imgNumber) => {
+        console.log('dot clicked')
+        wideContainer.innerHTML = '';
+        renderImages();
+        for (let i=1; i<imgNumber; i++) {
+        moveNext()
         
-//         visibleImage.classList.remove('visible');
-//         const nextVisibleImage = imageData.imageArray[visibleImageIndex+1];
-//         nextVisibleImage.classList.add('visible');
-    // }
-
-
-
-
+        }
+    }
     
+
+    navDotArray.forEach((dot, index) => {
+       
+        dot.addEventListener('click',() => goToImg(index+1)
+    );
+    })
    
-    fwdButton.addEventListener('click', slideForward);
+    fwdButton.addEventListener('click', moveNext);
+
+    bkButton.addEventListener('click', movePrev);
+
+
 
  
     
 
   
 
-return pictureFrame;
+return { pictureFrame, renderImages }
 }

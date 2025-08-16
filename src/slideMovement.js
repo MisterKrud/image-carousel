@@ -3,6 +3,7 @@ import { carousel } from "./carousel";
 
 
 const imageData = images();
+
 // const content = carousel()
 
 const startingImage = imageData.imageArray[2];
@@ -24,22 +25,36 @@ const imageDivArray = document.querySelectorAll('.img-div');
 
 
 export const slideForward = () =>{
-       const currentImage = visibleImage();
-       const currentImageIndex = imageData.imageArray.indexOf(currentImage)
-        currentImage.classList.remove('visible');
+    imageData.getImages();
+   
+    const imageArr = imageData.imagesArray
+    console.log(imageData.images);
+    const visibleImage = imageArr.shift();
+    console.log(imageData.images);
 
-        if (currentImageIndex >= imageData.imageArrayLength){
-            console.log('Already at the end');
-            return
-        } else {
-            console.log(imageData.imageArray);
-       const nextVisibleImage = imageData.imageArray[currentImageIndex+1]
-       const nextImage = nextVisibleImage.parentElement;
-     nextImage.classList.add('visible');
-     console.log(nextVisibleImage)
-        console.log('forward');
+    imageArr.push(visibleImage);
+    console.log(imageData.images);
+
+
+
+
+
+    //    const currentImage = visibleImage();
+    //    const currentImageIndex = imageData.imageArray.indexOf(currentImage)
+    //     currentImage.classList.remove('visible');
+
+    //     if (currentImageIndex >= imageData.imageArrayLength){
+    //         console.log('Already at the end');
+    //         return
+    //     } else {
+    //         console.log(imageData.imageArray);
+    //    const nextVisibleImage = imageData.imageArray[currentImageIndex+1]
+    //    const nextImage = nextVisibleImage.parentElement;
+    //  nextImage.classList.add('visible');
+    //  console.log(nextVisibleImage)
+    //     console.log('forward');
        
-        }
+    //     }
     }
 
 

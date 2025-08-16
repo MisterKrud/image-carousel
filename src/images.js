@@ -1,35 +1,48 @@
 
 
-export const images = () =>{
-   const image1 = document.createElement('img');
+ export const images = () =>{
+
+
+
+const images = [
+    "/images/Image1.jpg",
+    "/images/Image2.jpg",
+    "/images/Image3.jpg",
+    "/images/Image4.jpg",
+    "/images/Image5.jpg",
     
-   const image2 = document.createElement('img');
-   
-   const image3 = document.createElement('img');
-   
-   const image4 = document.createElement('img');
-   
-   const image5 = document.createElement('img');
+]
+
+
+let imagesArray 
    
    
-    const imageArray = [image1, image2, image3, image4, image5];
+
    
-    imageArray.forEach((img, indx) =>{
+  const getImages = () => {  
+     imagesArray = []
+    images.forEach((img, indx) =>{
+    
+        const image = document.createElement('img');
         
 
-         const imgId = (indx + 1);
-        const imgLoader = () => {
-         img.setAttribute('src',`https://picsum.photos/400/300?random=${Date.now()}${imgId}`)
-        }
-        img.classList.add('image');
+    
+     
+         image.setAttribute('src',img)
+        
+        image.classList.add('image');
        
-        img.id = `img${indx}`
-        img.onerror = imgLoader;
-        imgLoader();
-    })
+        image.id = `img${indx}`
+ 
+    imagesArray.push(image);
+ })
+}
+getImages();
+
+ const imageArray = () => imagesArray;
 
     const imageArrayLength = imageArray.length;
 
 
-return { imageArray, imageArrayLength}
+return { imageArray, imageArrayLength, getImages, images, imagesArray}
 }
