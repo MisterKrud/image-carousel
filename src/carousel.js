@@ -132,11 +132,12 @@ renderImages();
     });
     })
 
-//    const repeatMovement = () => {
-//      moveNext();
-//      setTimeout(repeatMovement, 5000)
-//    }
-//    repeatMovement();
+   const repeatMovement = () => {
+     setTimeout(moveNext, 5000);
+     setTimeout(repeatMovement, 5000);
+   
+   }
+   repeatMovement();
 
       
         
