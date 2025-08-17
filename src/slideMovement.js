@@ -62,3 +62,13 @@ export const slideForward = () =>{
 export const slideBack = () => {
 
 }
+
+
+
+ 
+
+//    const repeatMovement = () => {
+//      moveNext();
+//      setTimeout(repeatMovement, 5000)
+//    }
+//    repeatMovement();

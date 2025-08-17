@@ -30,7 +30,7 @@ export const carousel = () => {
    
     // imageData.getImages();
     const imageArr = imageData.imagesArray;
-    console.log('Render Images: '+imageArr)
+    
     imageArr.forEach((img, idx) => {
         const imgDiv = document.createElement('div');
      wideContainer.appendChild(imgDiv);
@@ -41,16 +41,20 @@ export const carousel = () => {
 
         if (navDotArray.length < imageArr.length) {
     const navDot = document.createElement('btn');
+    if (idx === 0){
+        navDot.classList.add('active');
+       }
     navDot.classList.add('nav-dot');
     navDot.id = `dot-${idx}`
     navDotContainer.appendChild(navDot);
        navDotArray.push(navDot)
+      
         }
-    
+     
     });
-     console.log('images rendered');
-     console.log(navDotArray);
-}
+     
+     }
+
 
 renderImages();
 
@@ -74,26 +78,51 @@ renderImages();
 
     const moveNext = () => {
    const visibleDiv = document.querySelector('.img-div')
+   console.log(visibleDiv.innerHTML)
         wideContainer.removeChild(visibleDiv);
         wideContainer.appendChild(visibleDiv);
+        activateVisibleDivDot();
+       
+      
+        
+       
+        
     }
 
     const movePrev = () => {
+        
         const lastDiv = wideContainer.lastChild;
         wideContainer.removeChild(lastDiv);
         wideContainer.prepend(lastDiv);
+         activateVisibleDivDot();
     }
 
     const goToImg = (imgNumber) => {
-        console.log('dot clicked')
+        console.log('dot clicked: imgNumber='+imgNumber)
         wideContainer.innerHTML = '';
         renderImages();
+         
         for (let i=1; i<imgNumber; i++) {
+           
         moveNext()
+        
         
         }
     }
     
+    const setActiveNavDot = (indx) =>{
+        
+        const currentActiveDot = document.querySelector('.active');
+        currentActiveDot.classList.remove('active');
+        navDotArray[indx].classList.add('active');
+    }
+
+    const activateVisibleDivDot = () =>{
+         const newDiv = document.querySelector('.img-div')
+        const imgLink = newDiv.querySelector('.image').getAttribute('src')
+        const newDivIndex = imageData.images.indexOf(imgLink);
+        setActiveNavDot(newDivIndex);
+    }
 
     navDotArray.forEach((dot, index) => {
        
@@ -103,11 +132,11 @@ renderImages();
     });
     })
 
-   const repeatMovement = () => {
-     moveNext();
-     setTimeout(repeatMovement, 5000)
-   }
-   repeatMovement();
+//    const repeatMovement = () => {
+//      moveNext();
+//      setTimeout(repeatMovement, 5000)
+//    }
+//    repeatMovement();
 
       
         

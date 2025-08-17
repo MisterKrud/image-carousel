@@ -36,6 +36,7 @@ let imagesArray
  
     imagesArray.push(image);
  })
+
 }
 getImages();
 
