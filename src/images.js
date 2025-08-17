@@ -1,10 +1,10 @@
 export const images = () => {
   const images = [
-    "/images/Image1.jpg",
-    "/images/Image2.jpg",
-    "/images/Image3.jpg",
-    "/images/Image4.jpg",
-    "/images/Image5.jpg",
+    "images/Image1.jpg",
+    "images/Image2.jpg",
+    "images/Image3.jpg",
+    "images/Image4.jpg",
+    "images/Image5.jpg",
   ];
 
   let imagesArray;
