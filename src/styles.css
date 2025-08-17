@@ -24,9 +24,10 @@
   overflow: hidden;
   width: 400px;
   height: 300px;
-  border: 5px solid gray;
+ box-shadow: 2px 2px 5px darkgrey;
   border-radius: 10px;
   position:relative;
+  margin-bottom: 10px;
   z-index: 0;
 }
 
